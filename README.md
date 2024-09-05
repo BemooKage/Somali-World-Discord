@@ -1,0 +1,2 @@
+# Somali-World-Discord
+DiscordSomaliWordle
