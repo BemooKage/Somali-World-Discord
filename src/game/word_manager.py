@@ -1,7 +1,7 @@
 """Word manager using Trie structure"""
 import random
 from typing import List
-from game.trie import Trie
+from .trie import Trie
 
 
 class WordleManager:

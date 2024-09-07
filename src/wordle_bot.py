@@ -29,6 +29,29 @@ class WordleBot(discord.Bot):
             for channel in guild.text_channels:
                 await guild.get_channel(channel.id).send('Hello! I am back online!')
                 break
+    
+    async def new_word_notification(self, old_word: str):
+        """Announce the old word for all channels that the bot is in!"""
+        print('sending new word notificaiton', old_word)
+        if old_word:
+            notification_message = (
+                f"🚨 The old word for Somali Wordle was: **{old_word}** 🚨"
+            )
+        else:
+            notification_message = (
+                "🚨 No previous word to announce yet! 🚨"
+            )
+        
+        for guild in self.guilds:
+            for channel in guild.text_channels:
+                try:
+                    await guild.get_channel(channel.id).send(notification_message)
+                    break
+                except Exception as e:
+                    print(f"Failed to send message to channel {channel.id} in guild {guild.id}: {e}")
+                    # Optionally, log or handle the exception
+
+
 
     async def on_guild_join(self, guild: discord.Guild):
         """On guild join"""

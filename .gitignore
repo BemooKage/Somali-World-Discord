@@ -1,6 +1,10 @@
 .env
-**.csv
 **.txt
+**.ipynb
+**.ipynb_checkpoints/
+**.exe.stackdump
+**.log
+**.db
 .vscode/**
 .venv/**
 **__pycache__/

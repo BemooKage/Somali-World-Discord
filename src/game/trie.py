@@ -99,8 +99,7 @@ class Trie:
 
     def _setup(self):
         """Set up Trie using wordlist"""
-        print(os.listdir())
-        with open("./src/data/unigram_freq.csv", mode="r", encoding='utf-8') as file:
+        with open("./src/data/somali_ngrams.csv", mode="r", encoding='utf-8') as file:
             csv_reader = csv.reader(file)
             next(csv_reader)  # Skip the header
             for row in csv_reader:
@@ -108,7 +107,7 @@ class Trie:
                 count = int(count)
                 if not word.isalpha():
                     continue
-                if len(word) == 5 and count > 50000:
+                if len(word) == 5 and count > 500:
                     self.add_word(word=word)
                 if self.size > 500:
                     break

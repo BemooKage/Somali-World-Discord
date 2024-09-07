@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    volumes:
+      - ./data:/app/src/data  # Mounts the `data` folder to the container
+    environment:
+      - ENVIRONMENT=production
+    command: python src/main.py
